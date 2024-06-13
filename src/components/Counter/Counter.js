@@ -7,10 +7,11 @@ import {
   setValue,
 } from "../../redux/slices/counterSlice";
 import { useState } from "react";
+import { getCountValue } from "../../redux/selectors/counterSelectors";
 
 export const Counter = () => {
   const [customValue, setCustomValue] = useState(0);
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector(getCountValue);
   const dispatch = useDispatch();
 
   const onIncrement = () => {
