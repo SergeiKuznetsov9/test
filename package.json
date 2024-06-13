@@ -16,6 +16,9 @@
     "url": "https://github.com/SergeiKuznetsov9/test/issues"
   },
   "homepage": "https://github.com/SergeiKuznetsov9/test#readme",
+  "dependencies": {
+    "axios": "^1.7.2"
+  },
   "devDependencies": {
     "jest": "^29.7.0"
   }
