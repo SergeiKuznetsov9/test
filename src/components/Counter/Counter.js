@@ -1,35 +1,10 @@
 import classNames from "classnames";
 import cls from "./Counter.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  increment,
-  decrement,
-  setValue,
-} from "../../redux/slices/counterSlice";
-import { useState } from "react";
-import { getCountValue } from "../../redux/selectors/counterSelectors";
+import { useCounter } from "../../hooks/useCounter";
 
 export const Counter = () => {
-  const [customValue, setCustomValue] = useState(0);
-  const count = useSelector(getCountValue);
-  const dispatch = useDispatch();
-
-  const onIncrement = () => {
-    dispatch(increment());
-  };
-
-  const onDecrement = () => {
-    dispatch(decrement());
-  };
-
-  const onSetValue = () => {
-    dispatch(setValue(Number(customValue)));
-  };
-
-  const onInput = (ev) => {
-    let result = ev.target.value.replace(/^0+/, "");
-    setCustomValue(result === "" ? "0" : result);
-  };
+  const [count, customValue, onInput, onIncrement, onDecrement, onSetValue] =
+    useCounter(0);
 
   return (
     <>
