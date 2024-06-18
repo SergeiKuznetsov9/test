@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
 import { getCountValue } from "../redux/selectors/counterSelectors";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { increment, decrement, setValue } from "../redux/slices/counterSlice";
+import { useAppDispatch, useAppSelector } from "./reduxHooks";
 
 export const useCounter = (initialValue) => {
-  const [customValue, setCustomValue] = useState(initialValue);
-  const count = useSelector(getCountValue);
-  const dispatch = useDispatch();
+  const [customValue, setCustomValue] = useState(0);
+  const count = useAppSelector(getCountValue);
+  const dispatch = useAppDispatch();
 
   const onIncrement = useCallback(() => {
     dispatch(increment());
@@ -24,6 +24,13 @@ export const useCounter = (initialValue) => {
     let result = ev.target.value.replace(/^0+/, "");
     setCustomValue(result === "" ? "0" : result);
   }, []);
+
+  useEffect(
+    () => {
+      dispatch(setValue(initialValue));
+    },
+    /* [] */ [initialValue]
+  );
 
   return [count, customValue, onInput, onIncrement, onDecrement, onSetValue];
 };
