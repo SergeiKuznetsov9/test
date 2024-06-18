@@ -41,5 +41,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SergeiKuznetsov9/test.git"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@shotgunjed)/"
+    ]
   }
 }
