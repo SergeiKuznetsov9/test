@@ -35,16 +35,18 @@ export const Counter = () => {
     <>
       <h1 className={cls.mrgBottom}>Counter</h1>
       <h2 className={cls.mrgBottom}>
-        Value: <span className={cls.value}>{count}</span>
+        Value: <span className={cls.value} data-testId="value">{count}</span>
       </h2>
       <div className={cls.buttonsBlock}>
         <button
+          data-testId="increment-btn"
           className={classNames(cls.button, cls.incButton)}
           onClick={onIncrement}
         >
           Increment
         </button>
         <button
+          data-testId="decrement-btn"
           className={classNames(cls.button, cls.decButton)}
           onClick={onDecrement}
         >
