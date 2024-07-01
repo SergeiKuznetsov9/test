@@ -1,6 +1,8 @@
 const { handleResult } = require("./handleResult");
 const { doubleIncreas } = require("./utils");
 
+// Здесь описываем проблему счетчиков
+
 jest.mock("./utils");
 
 describe("", () => {

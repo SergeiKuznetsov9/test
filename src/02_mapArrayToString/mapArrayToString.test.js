@@ -1,9 +1,11 @@
 const { mapArrayToString } = require("./mapArrayToString");
 
+// Здесь рассказываем про разницу между toEqual и toBe
+
 describe("mapArrayToString", () => {
   test("Корректное значения", () => {
     // toEqual - производит глубокое сравнение
-    // toBe - приведет к падению теста
+    // toBe - приведет к падению теста, поскольку сравнение осуществляется либо по ссылке либо по значению литерала
     expect(mapArrayToString([1, 2, 3])).toEqual(["1", "2", "3"]);
   });
 
